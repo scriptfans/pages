@@ -6,15 +6,15 @@ require 'pages/rails/version'
 Gem::Specification.new do |spec|
   spec.name          = "pages-rails"
   spec.version       = Pages::Rails::VERSION
-  spec.authors       = ["Malith"]
-  spec.email         = ["malith@revox.io"]
+  spec.authors       = ["ace"]
+  spec.email         = ["support@revox.io"]
 
   if spec.respond_to?(:metadata)
     spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
   end
 
-  spec.summary       = %q{Pages Core UI }
-  spec.description   = %q{Pages Admin Dashboard Goes here}
+  spec.summary       = %q{Pages Admin Dashboard UI Framework}
+  spec.description   = %q{Our long standing vision has been to bypass the usual admin dashboard structure, and move forward with a more sophisticated yet simple framework that would create a credible impact on the many conventional dashboard users.}
   spec.homepage      = "http://pages.revox.io"
   spec.license       = "MIT"
 

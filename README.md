@@ -9,9 +9,15 @@ TODO: Delete this and the text above, and describe your gem
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'pages-rails'
+gem 'pages-rails','2.1.4',:git => 'https://github.com/revoxltd/pages-rails.git'
 ```
 
+Install from branch/tag/release
+```
+gem 'pages-rails', :git => "https://github.com/revoxltd/pages-rails.git", :ref => "4aded"
+gem 'pages-rails', :git => "https://github.com/revoxltd/pages-rails.git", :branch => "2-3-stable"
+gem 'pages-rails', :git => "https://github.com/revoxltd/pages-rails.git", :tag => "v2.3.5"
+```
 And then execute:
 
     $ bundle
@@ -21,19 +27,30 @@ Or install it yourself as:
     $ gem install pages-rails
 
 ## Usage
+1. Add to your application.js
+Will Include core pages.js
+```
+//= require pages
+```
 
-TODO: Write usage instructions here
+Adding other components like calendar,email etc
+```
+//= require pages.calendar
+//= require pages.email
+//= require pages.social
+```
 
-## Development
+2. Add to your application.css
+```
+*= require pages
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment. 
+ or include rtl version
+```
+*= require pages.rtl
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-1. Fork it ( https://github.com/[my-github-username]/pages-rails/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+Include theme (dont include with pages.rtl or pages, only include the following)
+```
+ *= require themes/abstract
+ ```
