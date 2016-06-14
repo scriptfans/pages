@@ -56,7 +56,7 @@ Include theme (dont include with pages.rtl or pages, only include the following)
 ##Dependencies
 
 | Plugin | Description | Dep. Status |
-| -- | -- | -- |
+| ------ | ----------- | ----------- |
 | jquery.js | Core JS Library | **REQUIRED** |
 | mordnerizer.js | Browser Feature Detection | **REQUIRED** |
 |bootstrap.js| Core Framework | **REQUIRED**
