@@ -1,4 +1,5 @@
 require "pages/rails/version"
+require 'pages/rails/engine'
 
 module Pages
   module Rails
