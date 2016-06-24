@@ -3,154 +3,154 @@
 // Copyright Reserved Revox - 2014
 // --------------------------------------------------
 
-$base-img-url: "../../img";
-$assets-url: "../../../assets";
+$base-img-url: "../../img" !default;
+$assets-url: "../../../assets" !default;
 // Global Color 
 // --------------------------------------------------
 // Base Grey Guided Color * change only $base-light
 // --------------------------------------------------
 
 //Base Grey Color
-$color-master: #51646b;
+$color-master: #51646b !default;
 
-$color-white: #fff;
-$color-black: #000;
+$color-white: #fff !default;
+$color-black: #000 !default;
 
-$color-success: #36d7a8;
-$color-complete : #0091ff;
-$color-primary: #6a71e5;
-$color-warning: #f7dc5f;
-$color-danger: #ed5565;
-$color-info: #394058;
+$color-success: #36d7a8 !default;
+$color-complete : #0091ff !default;
+$color-primary: #6a71e5 !default;
+$color-warning: #f7dc5f !default;
+$color-danger: #ed5565 !default;
+$color-info: #394058 !default;
 
 // Lighter Grey colors
-$color-master-light:mix($color-master, #fff, 24%);
-$color-master-lighter:mix($color-master, #fff, 15%);
-$color-master-lightest:mix($color-master, #fff, 8%);
+$color-master-light:mix($color-master, #fff, 24%) !default;
+$color-master-lighter:mix($color-master, #fff, 15%) !default;
+$color-master-lightest:mix($color-master, #fff, 8%) !default;
 
 // Darker Grey colors
-$color-master-dark:mix($color-master, #000, 45%);
-$color-master-darker:mix($color-master, #000, 27%);
-$color-master-darkest:mix($color-master, #000, 20%);
+$color-master-dark:mix($color-master, #000, 45%) !default;
+$color-master-darker:mix($color-master, #000, 27%) !default;
+$color-master-darkest:mix($color-master, #000, 20%) !default;
 
 
-$base-font-family: wf_segoe-ui_light,wf_segoe-ui_normal,"Helvetica Neue", Helvetica, Arial, sans-serif;
+$base-font-family: wf_segoe-ui_light,wf_segoe-ui_normal,"Helvetica Neue", Helvetica, Arial, sans-serif !default;
 
 // Menu Vars
 // --------------------------------------------------
 //Menu Animation Curve
-$menu-bezier:.05, .74, .27, .99;
-$menu-icon-size:40px;
-$color-menu :#282834;
-$color-menu-dark :mix($color-menu, #000, 77%);
-$color-menu-darker :mix($color-menu, #000, 90%);
+$menu-bezier:.05, .74, .27, .99 !default;
+$menu-icon-size:40px !default;
+$color-menu :#282834 !default;
+$color-menu-dark :mix($color-menu, #000, 77%) !default;
+$color-menu-darker :mix($color-menu, #000, 90%) !default;
 
 //Generating Menu font color
-$menu-mix-temp : mix($color-menu, #fff, 92%);
-$menu :blend-hardlight($menu-mix-temp,#fff);
-$color-menu-light :$menu;
+$menu-mix-temp : mix($color-menu, #fff, 92%) !default;
+$menu :blend-hardlight($menu-mix-temp,#fff) !default;
+$color-menu-light :$menu !default;
 //Menu Font Color
-$color-menu-light :$menu;
-$color-menu-link-hover:#fff;
+$color-menu-light :$menu !default;
+$color-menu-link-hover:#fff !default;
 
 //Dashboard
-$dashboard-background : $color-master-lightest;
+$dashboard-background : $color-master-lightest !default;
 
 // Body
 // --------------------------------------------------
-$body-background: $color-master-lightest;
-$body-color: $color-master;
-$body-font-family : $base-font-family;
-$body-font-size : 13px;
+$body-background: $color-master-lightest !default;
+$body-color: $color-master !default;
+$body-font-family : $base-font-family !default;
+$body-font-size : 13px !default;
 
 // Layout
 // --------------------------------------------------
-$layout-header-height:60px;
-$layout-mobile-header-height:48px;
-$layout-mobile-logo-scale:0.8;
-$layout-sidepanel-width-collapsed : 70px;
-$layout-sidepanel-width:280px;
-$layout-sidepanel-pin-width:250px;
-$layout-right-quickview-width: 285px;
-$layout-user-profile-margin:25px;
-$layout-container-fixed-lg: 1700px;
+$layout-header-height:60px !default;
+$layout-mobile-header-height:48px !default;
+$layout-mobile-logo-scale:0.8 !default;
+$layout-sidepanel-width-collapsed : 70px !default;
+$layout-sidepanel-width:280px !default;
+$layout-sidepanel-pin-width:250px !default;
+$layout-right-quickview-width: 285px !default;
+$layout-user-profile-margin:25px !default;
+$layout-container-fixed-lg: 1700px !default;
 
-$layout-gutter-sm : 5px;
+$layout-gutter-sm : 5px !default;
 
 // Panels
-$panel-border-color: transparent;
-$panel-padding: 20px;
-$panel-heading-padding: $panel-padding $panel-padding 7px $panel-padding;
-$panel-heading-min-height: 48px;
-$panel-condensed-heading-padding: 13px 13px 0 13px;
-$panel-condensed-body-padding: 13px;
-$panel-condensed-heading-min-height: 48px;
+$panel-border-color: transparent !default;
+$panel-padding: 20px !default;
+$panel-heading-padding: $panel-padding $panel-padding 7px $panel-padding !default;
+$panel-heading-min-height: 48px !default;
+$panel-condensed-heading-padding: 13px 13px 0 13px !default;
+$panel-condensed-body-padding: 13px !default;
+$panel-condensed-heading-min-height: 48px !default;
 
 //Forms
-$form-group-height: 54px;
-$form-control-border-color: rgba($color-black, .07);
+$form-group-height: 54px !default;
+$form-control-border-color: rgba($color-black, .07) !default;
 
 
 
 //Mixing Color varriable for creating both light and dark colors
-$mix-percentage-dark: 81%;
-$mix-percentage-darker: 60%;
-$mix-percentage-light: 80%;
-$mix-percentage-lighter: 20%;
+$mix-percentage-dark: 81% !default;
+$mix-percentage-darker: 60% !default;
+$mix-percentage-light: 80% !default;
+$mix-percentage-lighter: 20% !default;
 
 //Lighter colors
-$color-success-light: mix($color-success, $color-white, $mix-percentage-light);
-$color-success-lighter: mix($color-success, $color-white, $mix-percentage-lighter);
+$color-success-light: mix($color-success, $color-white, $mix-percentage-light) !default;
+$color-success-lighter: mix($color-success, $color-white, $mix-percentage-lighter) !default;
 
-$color-complete-light: mix($color-complete, $color-white, $mix-percentage-light);
-$color-complete-lighter: mix($color-complete, $color-white, $mix-percentage-lighter);
+$color-complete-light: mix($color-complete, $color-white, $mix-percentage-light) !default;
+$color-complete-lighter: mix($color-complete, $color-white, $mix-percentage-lighter) !default;
 
-$color-primary-light: mix($color-primary, $color-white, $mix-percentage-light);
-$color-primary-lighter: mix($color-primary, $color-white, $mix-percentage-lighter);
+$color-primary-light: mix($color-primary, $color-white, $mix-percentage-light) !default;
+$color-primary-lighter: mix($color-primary, $color-white, $mix-percentage-lighter) !default;
 
-$color-warning-light: mix($color-warning, $color-white, $mix-percentage-light);
-$color-warning-lighter: mix($color-warning, $color-white, $mix-percentage-lighter);
+$color-warning-light: mix($color-warning, $color-white, $mix-percentage-light) !default;
+$color-warning-lighter: mix($color-warning, $color-white, $mix-percentage-lighter) !default;
 
-$color-danger-light: mix($color-danger, $color-white, $mix-percentage-light);
-$color-danger-lighter: mix($color-danger, $color-white, $mix-percentage-lighter);
+$color-danger-light: mix($color-danger, $color-white, $mix-percentage-light) !default;
+$color-danger-lighter: mix($color-danger, $color-white, $mix-percentage-lighter) !default;
 
-$color-info-light: mix($color-info, $color-white, $mix-percentage-light);
-$color-info-lighter: mix($color-info, $color-white, $mix-percentage-lighter);
+$color-info-light: mix($color-info, $color-white, $mix-percentage-light) !default;
+$color-info-lighter: mix($color-info, $color-white, $mix-percentage-lighter) !default;
 
 //Darker colors
-$color-success-dark: mix($color-success, $color-black, $mix-percentage-dark);
-$color-success-darker: mix($color-success, $color-black, $mix-percentage-darker);
+$color-success-dark: mix($color-success, $color-black, $mix-percentage-dark) !default;
+$color-success-darker: mix($color-success, $color-black, $mix-percentage-darker) !default;
 
-$color-complete-dark: mix($color-complete, $color-black, $mix-percentage-dark);
-$color-complete-darker: mix($color-complete, $color-black, $mix-percentage-darker);
+$color-complete-dark: mix($color-complete, $color-black, $mix-percentage-dark) !default;
+$color-complete-darker: mix($color-complete, $color-black, $mix-percentage-darker) !default;
 
-$color-primary-dark: mix($color-primary, $color-black, $mix-percentage-dark);
-$color-primary-darker: mix($color-primary, $color-black, $mix-percentage-darker);
+$color-primary-dark: mix($color-primary, $color-black, $mix-percentage-dark) !default;
+$color-primary-darker: mix($color-primary, $color-black, $mix-percentage-darker) !default;
 
-$color-warning-dark: mix($color-warning, $color-black, $mix-percentage-dark);
-$color-warning-darker: mix($color-warning, $color-black, $mix-percentage-darker);
+$color-warning-dark: mix($color-warning, $color-black, $mix-percentage-dark) !default;
+$color-warning-darker: mix($color-warning, $color-black, $mix-percentage-darker) !default;
 
-$color-danger-dark: mix($color-danger, $color-black, $mix-percentage-dark);
-$color-danger-darker: mix($color-danger, $color-black, $mix-percentage-darker);
+$color-danger-dark: mix($color-danger, $color-black, $mix-percentage-dark) !default;
+$color-danger-darker: mix($color-danger, $color-black, $mix-percentage-darker) !default;
 
-$color-info-dark: mix($color-info, $color-black, $mix-percentage-dark);
-$color-info-darker: mix($color-info, $color-black, $mix-percentage-darker);
+$color-info-dark: mix($color-info, $color-black, $mix-percentage-dark) !default;
+$color-info-darker: mix($color-info, $color-black, $mix-percentage-darker) !default;
 
 // Email colors
-$sidebar-background-color : $color-menu-dark;
+$sidebar-background-color : $color-menu-dark !default;
 
 // Components
 // --------------------------------------------------
 //## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
 
-//$padding-base-vertical:     6px;
-$padding-base-horizontal:   17px;
+//$padding-base-vertical:     6px !default;
+$padding-base-horizontal:   17px !default;
 
-// $padding-lg-vertical:    28px;
-$padding-lg-horizontal:  28px;
+// $padding-lg-vertical:    28px !default;
+$padding-lg-horizontal:  28px !default;
 
-// $padding-sm-vertical:    5px;
-$padding-sm-horizontal:  16px;
+// $padding-sm-vertical:    5px !default;
+$padding-sm-horizontal:  16px !default;
 
-$padding-xs-vertical:       2px;
-$padding-xs-horizontal:     9px;
+$padding-xs-vertical:       2px !default;
+$padding-xs-horizontal:     9px !default;
