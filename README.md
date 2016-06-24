@@ -38,19 +38,33 @@ Adding other components like calendar,email etc
 //= require pages.social
 ```
 
-2. Add to your application.css
+2. Add to your application.scss or to your custom.scss file
 ```
-*= require pages
+$base-img-url: "/assets";
+@import "pages";
 ```
 
- or include rtl version
+You can update varriables as you wish. To see the varriables used open the file stylesheets/_var.scss 	[Click here](https://github.com/revoxltd/pages-rails/blob/master/vendor/assets/stylesheets/_var.scss)
 ```
-*= require pages.rtl
+$color-master: #626262 !default;
+```
+You should add varriables before 
+```
+@import "pages";
+```
+
+You could also require specific module per page eg:
+
+```
+$base-img-url: "/assets";
+@import "modules/_layouts";
+@import "modules/_modals";
 ```
 
 Include theme (dont include with pages.rtl or pages, only include the following)
 ```
- *= require themes/abstract
+$base-img-url: "/assets";
+@import "themes/calendar";
  ```
 
 ##Dependencies
