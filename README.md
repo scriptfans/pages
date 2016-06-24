@@ -7,7 +7,7 @@ Welcome to Rails Pages Gem. The following will not install all thirdpary depende
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'pages-rails','2.1.4',:git => 'https://github.com/revoxltd/pages-rails.git'
+gem 'pages-rails','2.1.5',:git => 'https://github.com/revoxltd/pages-rails.git'
 ```
 
 Install from branch/tag/release
