@@ -132,6 +132,10 @@ body {
             color:#eaeef1;
         }
     }
+    .pull-left, .pull-right{
+        z-index: 10;
+        position: relative;
+    }
     .header-inner {
         height: $layout-header-height;
         width: 100%;
@@ -802,7 +806,6 @@ $secondary-sidebar-width : 250px;
     overflow: auto;
     min-height: 100%;
     margin-left: $secondary-sidebar-width;
-    min-height: 100%;
 }
 
 /* Quick View 

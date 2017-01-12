@@ -11,7 +11,7 @@
      * @property {object}  $body - Cache Body.
      */
     var Pages = function() {
-        this.VERSION = "2.1.4";
+        this.VERSION = "2.2.0";
         this.AUTHOR = "Revox";
         this.SUPPORT = "support@revox.io";
 
@@ -113,7 +113,7 @@
     }
 
     /** @function getColor
-    * @description Get Color from CSS 
+    * @description Get Color from CSS
     * @param {string} color - pages color class eg: primary,master,master-light etc.
     * @param {int} opacity
     * @returns {rgba}
@@ -135,10 +135,11 @@
 
     /** @function initSidebar
     * @description Initialize side bar to open and close
+    * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
     * @requires ui/sidebar.js
     */
-    Pages.prototype.initSidebar = function() {
-        $('[data-pages="sidebar"]').each(function() {
+    Pages.prototype.initSidebar = function(context) {
+        $('[data-pages="sidebar"]', context).each(function() {
             var $sidebar = $(this)
             $sidebar.sidebar($sidebar.data())
         })
@@ -146,15 +147,15 @@
 
     /** @function initDropDown
     * @description Initialize Boot-Strap dropdown Menue
+    * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
     * @requires bootstrap.js
     */
-    Pages.prototype.initDropDown = function() {
+    Pages.prototype.initDropDown = function(context) {
         // adjust width of each dropdown to match content width
-        $('.dropdown-default').each(function() {
+        $('.dropdown-default', context).each(function() {
             var btn = $(this).find('.dropdown-menu').siblings('.dropdown-toggle');
             var offset = 0;
 
-            var padding = btn.actual('innerWidth') - btn.actual('width');
             var menuWidth = $(this).find('.dropdown-menu').actual('outerWidth');
 
             if (btn.actual('outerWidth') < menuWidth) {
@@ -168,26 +169,33 @@
 
     /** @function initFormGroupDefault
     * @description Initialize Pages form group input
+    * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
     */
-    Pages.prototype.initFormGroupDefault = function() {
-        $('.form-group.form-group-default').click(function() {
+    Pages.prototype.initFormGroupDefault = function(context) {
+        $('.form-group.form-group-default', context).click(function() {
             $(this).find('input').focus();
         });
-        $('body').on('focus', '.form-group.form-group-default :input', function() {
-            $('.form-group.form-group-default').removeClass('focused');
-            $(this).parents('.form-group').addClass('focused');
-        });
 
-        $('body').on('blur', '.form-group.form-group-default :input', function() {
-            $(this).parents('.form-group').removeClass('focused');
-            if ($(this).val()) {
-                $(this).closest('.form-group').find('label').addClass('fade');
-            } else {
-                $(this).closest('.form-group').find('label').removeClass('fade');
-            }
-        });
+        if (!this.initFormGroupDefaultRun) {
+            $('body').on('focus', '.form-group.form-group-default :input', function() {
+                $('.form-group.form-group-default').removeClass('focused');
+                $(this).parents('.form-group').addClass('focused');
+            });
 
-        $('.form-group.form-group-default .checkbox, .form-group.form-group-default .radio').hover(function() {
+            $('body').on('blur', '.form-group.form-group-default :input', function() {
+                $(this).parents('.form-group').removeClass('focused');
+                if ($(this).val()) {
+                    $(this).closest('.form-group').find('label').addClass('fade');
+                } else {
+                    $(this).closest('.form-group').find('label').removeClass('fade');
+                }
+            });
+
+            // Only run the above code once.
+            this.initFormGroupDefaultRun = true;
+        }
+
+        $('.form-group.form-group-default .checkbox, .form-group.form-group-default .radio', context).hover(function() {
             $(this).parents('.form-group').addClass('focused');
         }, function() {
             $(this).parents('.form-group').removeClass('focused');
@@ -196,11 +204,12 @@
 
     /** @function initSlidingTabs
     * @description Initialize Bootstrap Custom Sliding Tabs
+    * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
     * @requires bootstrap.js
     */
-    Pages.prototype.initSlidingTabs = function() {
+    Pages.prototype.initSlidingTabs = function(context) {
         // TODO: move this to a separate file
-        $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+        $('a[data-toggle="tab"]', context).on('show.bs.tab', function(e) {
             //e = $(e.relatedTarget || e.target).parent().find('a[data-toggle=tab]');
             e = $(e.target).parent().find('a[data-toggle=tab]');
 
@@ -228,7 +237,7 @@
             for(var i = 1; i <= drop.children("li").length; i++){
                 var li = drop.children("li:nth-child("+i+")");
                 var selected ="";
-                if(li.hasClass("active")){    
+                if(li.hasClass("active")){
                     selected="selected";
                 }
                 content +='<option value="'+ li.children('a').attr('href')+'" '+selected+'>';
@@ -241,7 +250,7 @@
             $(select).on('change', function (e) {
                 var optionSelected = $("option:selected", this);
                 var valueSelected = this.value;
-                drop.find('a[href="'+valueSelected+'"]').tab('show') 
+                drop.find('a[href="'+valueSelected+'"]').tab('show')
             })
             $(select).wrap('<div class="nav-tab-dropdown cs-wrapper full-width p-t-10 visible-xs visible-sm"></div>');
             new SelectFx(select);
@@ -295,8 +304,8 @@
             } else {
                 $(this).parent().html(log);
             }
-        });        
-    }   
+        });
+    }
     /** @function initHorizontalMenu
     * @description Initialize Horizontal Dropdown Menu
     */
@@ -304,7 +313,7 @@
         $(document).on('click', '.horizontal-menu .bar-inner > ul > li', function(){
             $(this).toggleClass('open').siblings().removeClass('open');
         });
-       
+
         $('.content').on('click', function () {
             $('.horizontal-menu .bar-inner > ul > li').removeClass('open');
         });
@@ -316,21 +325,23 @@
     }
     /** @function initTooltipPlugin
     * @description Initialize Bootstrap tooltip
+    * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
     * @requires bootstrap.js
     */
-    Pages.prototype.initTooltipPlugin = function() {
-        $.fn.tooltip && $('[data-toggle="tooltip"]').tooltip();
+    Pages.prototype.initTooltipPlugin = function(context) {
+        $.fn.tooltip && $('[data-toggle="tooltip"]', context).tooltip();
     }
     /** @function initSelect2Plugin
     * @description Initialize select2 dropdown
-    * @requires select2.js
+    * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
+    * @requires select2.js version 4.0.x
     */
-    Pages.prototype.initSelect2Plugin = function() {
-        $.fn.select2 && $('[data-init-plugin="select2"]').each(function() {
+    Pages.prototype.initSelect2Plugin = function(context) {
+        $.fn.select2 && $('[data-init-plugin="select2"]', context).each(function() {
             $(this).select2({
                 minimumResultsForSearch: ($(this).attr('data-disable-search') == 'true' ? -1 : 1)
-            }).on('select2-opening', function() {
-                $.fn.scrollbar && $('.select2-results').scrollbar({
+            }).on('select2:open', function() {
+                $.fn.scrollbar && $('.select2-results__options').scrollbar({
                     ignoreMobile: false
                 })
             });
@@ -338,33 +349,37 @@
     }
     /** @function initScrollBarPlugin
     * @description Initialize Global Scroller
+    * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
     * @requires jquery-scrollbar.js
     */
-    Pages.prototype.initScrollBarPlugin = function() {
-        $.fn.scrollbar && $('.scrollable').scrollbar({
-            ignoreOverlay: false
+    Pages.prototype.initScrollBarPlugin = function(context) {
+        $.fn.scrollbar && $('.scrollable', context).scrollbar({
+            ignoreOverlay: false,
+            disableBodyScroll: true
         });
     }
     /** @function initListView
     * @description Initialize iOS like List view plugin
+    * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
     * @example <caption>data-init-list-view="ioslist"</caption>
     * @requires jquery-ioslist.js
     */
-    Pages.prototype.initListView = function() {
-        $.fn.ioslist && $('[data-init-list-view="ioslist"]').ioslist();
-        $.fn.scrollbar && $('.list-view-wrapper').scrollbar({
+    Pages.prototype.initListView = function(context) {
+        $.fn.ioslist && $('[data-init-list-view="ioslist"]', context).ioslist();
+        $.fn.scrollbar && $('.list-view-wrapper', context).scrollbar({
             ignoreOverlay: false
         });
     }
 
     /** @function initSwitcheryPlugin
     * @description Initialize iOS like List view plugin
+    * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
     * @example <caption>data-init-plugin="switchery"</caption>
     * @requires Switchery.js
     */
-    Pages.prototype.initSwitcheryPlugin = function() {
+    Pages.prototype.initSwitcheryPlugin = function(context) {
         // Switchery - ios7 switch
-        window.Switchery && $('[data-init-plugin="switchery"]').each(function() {
+        window.Switchery && $('[data-init-plugin="switchery"]', context).each(function() {
             var el = $(this);
             new Switchery(el.get(0), {
                 color: (el.data("color") != null ?  $.Pages.getColor(el.data("color")) : $.Pages.getColor('success')),
@@ -375,10 +390,11 @@
 
     /** @function initSelectFxPlugin
     * @description Initialize iOS like List view plugin
+    * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
     * @example <caption>select[data-init-plugin="cs-select"]</caption>
     */
-    Pages.prototype.initSelectFxPlugin = function() {
-        window.SelectFx && $('select[data-init-plugin="cs-select"]').each(function() {
+    Pages.prototype.initSelectFxPlugin = function(context) {
+        window.SelectFx && $('select[data-init-plugin="cs-select"]', context).each(function() {
             var el = $(this).get(0);
             $(el).wrap('<div class="cs-wrapper"></div>');
             new SelectFx(el);
@@ -386,10 +402,11 @@
     }
     /** @function initUnveilPlugin
     * @description To load retina images to img tag
+    * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
     */
-    Pages.prototype.initUnveilPlugin = function() {
+    Pages.prototype.initUnveilPlugin = function(context) {
         // lazy load retina images
-        $.fn.unveil && $("img").unveil();
+        $.fn.unveil && $("img", context).unveil();
     }
 
     /** @function initValidatorPlugin
@@ -486,7 +503,7 @@
 
     $.Pages = new Pages();
     $.Pages.Constructor = Pages;
-    
+
 })(window.jQuery);
 
 /**
@@ -583,7 +600,6 @@
         container: 'body',
         // callback when changing the value
         onChange: function(el) {
-            console.log(el);
             var event = document.createEvent('HTMLEvents');
             event.initEvent('change', true, false);
             el.dispatchEvent(event);
@@ -597,7 +613,7 @@
     SelectFx.prototype._init = function() {
         // check if we are using a placeholder for the native select box
         // we assume the placeholder is disabled and selected by default
-        var selectedOpt = this.el.querySelector('option[selected]');
+        var selectedOpt = document.querySelector('option[selected]');
         this.hasDefaultPlaceholder = selectedOpt && selectedOpt.disabled;
 
         // get selected option (either the first option with attr selected or just the first option)
@@ -624,7 +640,6 @@
         this.el.onchange = function() {
             var index = this.selectedIndex;
             var inputText = this.children[index].innerHTML.trim();
-            console.log(inputText);
         }
 
     }
@@ -1243,7 +1258,6 @@
         }
 
     };
-
     $.fn.pgNotification = function(options) {
         return new Notification(this, options);
     };
@@ -1821,7 +1835,8 @@
 
          // apply perfectScrollbar plugin only for desktops
          ($.Pages.getUserAgent() == 'desktop') && this.$sidebarMenu.scrollbar({
-             ignoreOverlay: false
+             ignoreOverlay: false,
+             disableBodyScroll :(this.$element.data("disableBodyScroll") == true)? true : false
          });
 
 

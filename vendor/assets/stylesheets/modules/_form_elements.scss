@@ -675,34 +675,36 @@ input[type=checkbox]:checked + label{
         & > label{
             position: absolute;
             z-index: 10;
-            padding: 7px 12px 0 12px;
+            padding:7px 12px 0 12px;
             &.label-lg{
-                left: 0;
+                left:0;
                 top: 0;
             }
             &.label-sm{
-                left: 0;
+                left:0;
                 top: 0;                
             }
         }
         .select2-container{
-            .select2-choice{
+            .select2-selection--single{
                 padding-top: 20px;
                 height: 52px;
                 .select2-arrow b:before{
                     top: 20px;
                 }
                 .select2-chosen{
-                    padding-left: 3px;
+                    padding-left:3px;
                     padding-top: 1px;
                 }
             }
-            .select2-choices{
+            .select2-selection--multiple{
                 padding-top: 20px;
                 height: 52px;  
-                border:0px;       
+                border:0px;  
+                .select2-selection__rendered .select2-selection__choice{
+                    margin-top:4px;
+                }     
             }
-
         }
         & > .input-lg{
             height: auto;
@@ -1047,32 +1049,44 @@ http://www.dangrossman.info/
 http://ivaynberg.github.io/select2/
 */
 
-.form-group-default .select2-container .select2-choice, 
+.form-group-default .select2-container .select2-selection, 
 .select2-container-multi .select2-choices{
-    border-color:transparent;
+    border-color: transparent !important;
+}
+select.full-width + .select2-container {
+    width: 100% !important;
 }
 .select2-container {
-    .select2-choice {
+    //Chrome outline fix
+    *:focus {
+        outline: none;
+    }
+    .select2-selection {
         background-image: none;
         border-radius: 2px;
-        border: 1px solid $form-control-border-color;
-        padding: 3px 9px;
+        border: 1px solid $form-control-border-color !important;
+        padding: 2px 9px;
         transition: border 0.2s linear 0s;
-        height: 35px;
-        .select2-arrow {
+        .select2-selection__rendered {
+            padding: 0;
+            padding-left: 3px;
+            padding-top: 1px;
+        }
+        .select2-selection__arrow {
+            top: auto;
+            bottom: 5px;
+            right: 10px !important;
+            left:auto;
             background: transparent;
             border-left: 0px;
             @include transition(all 0.3s ease);
-            b {
-                &:before {
-                    font-family:'FontAwesome';
-                    content:"\f0d7";
-                    position: relative;
-                    top: 2px;
-                    right: 5px;
-                    font-size: 12px;
-                }
-            }
+        }
+        &.select2-selection--single {
+            height: 35px;
+        }
+        & > .select2-chosen{
+            margin-right:26px;
+            margin-left:0;
         }
     }
     &.select2-drop-above {
@@ -1080,6 +1094,14 @@ http://ivaynberg.github.io/select2/
             border-bottom-right-radius: 2px;
             border-bottom-left-radius: 2px;
         }
+    }
+}
+.select2-container--default {
+    .select2-results__option[aria-selected="true"] {
+        background-color: transparent;
+    }
+    .select2-results__group{
+        color: $color-master-dark;
     }
 }
 .select2-search input, 
@@ -1102,28 +1124,27 @@ http://ivaynberg.github.io/select2/
         }
     }
 }
-.select2-drop {
+.select2-dropdown {
+    border: 1px solid $form-control-border-color;
+    border-bottom: none;
+    border-radius: 2px;
+    padding-top: 0px;
     &.select2-drop-above {
         border-top-left-radius: 2px;
         border-top-right-radius: 2px;
         box-shadow: none;
-        &.select2-drop-active {
-            border: 1px solid $form-control-border-color;
-            border-bottom: none;
-            border-radius: 2px;
-            padding-top: 0px;
-        }
+        // &.select2-drop-active {
+        // }
     }
 }
-.select2-container-active .select2-choice, 
-.select2-container-active .select2-choices {
+.select2-container--open .select2-selection {
     box-shadow: none;
     border: 1px solid $form-control-border-color;
     background: $color-master-lighter;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
 }
-.select2-search {
+.select2-search--dropdown {
     padding-left: 8px;
     padding-right: 8px;
     padding-top: 4px;
@@ -1134,11 +1155,11 @@ http://ivaynberg.github.io/select2/
         border-radius: 2px;
         border: none;
         font-size: 12px;
-        border: 1px solid $form-control-border-color;
+        border: 1px solid $form-control-border-color !important;
     }
 }
 .select2-results {
-    margin: 3px 10px 10px 3px;
+    margin: 3px 8px 10px 8px;
     li {
         color: $color-master;
         &.select2-result-with-children {
@@ -1150,12 +1171,10 @@ http://ivaynberg.github.io/select2/
             }
         }
     }
-    .select2-highlighted {
-        background: $color-master-lighter;
+    .select2-results__option--highlighted {
+        background-color: $color-master-lighter !important;
         border-radius: 3px;
-        .select2-result-label {
-            color:  $color-master;
-        }
+        color: $color-master !important;
     }
     .select2-no-results, 
     .select2-searching, 
@@ -1163,36 +1182,48 @@ http://ivaynberg.github.io/select2/
         background: none;
         color: $color-master;
         font-size: 12px;
-        padding-left: 8px;
+        padding-left:8px;
         padding-top: 0px;
         position: relative;
         top: -5px;
     }
 }
 
-.select2-drop-active {
+.select2-dropdown {
     border: 1px solid  $form-control-border-color;
-    border-bottom: none;
-    border-top: none;
     border-bottom-right-radius: 2px;
     border-bottom-left-radius: 2px;
     padding-top: 5px;
     z-index: $zIndex-navbar - 10;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, .15);
 }
-.select2-container-multi {
-    .select2-choices {
+.select2-container--open .select2-selection--multiple .select2-selection__choice {
+    background-color: $color-white !important;
+}
+.select2-selection--multiple {
+    .select2-selection__rendered {
         background-image: none;
-        border: 1px solid $form-control-border-color;
-        border-radius: 2px;
-        .select2-search-choice {
+        .select2-selection__choice {
             background-color: $color-master-light;
             background-image: none;
             border: none;
             box-shadow: none;
             color: inherit;
             border-radius: 8px;
-            margin: 8px -5px 7px 10px;
-            padding: 4px 8px 4px 21px;
+            margin: 6px -5px 0px 10px;
+            padding: 0 8px 0 7px;
+            line-height: 21px;
+            &:first-child {
+                margin-left: 0;
+            }
+            .select2-selection__choice__remove {
+                color: #626262;
+                font-weight: 900;
+                margin-right: 4px;
+            }
+        }
+        .select2-search--inline {
+            margin-left: 8px;
         }
     }
     &.select2-container-active {
@@ -1200,26 +1231,17 @@ http://ivaynberg.github.io/select2/
             border: 1px solid $form-control-border-color;
             box-shadow: none;
         }
-        .select2-search-choice {
-            background-color: $color-white !important;
-        }
     }
     .select2-search-choice-close {
-        left: 6px;
+        left:6px;
     }
 }
 .select2-search-choice-close {
     background: none;
     top: 4px;
-    right: 0;
+    right:0;
     &:hover {
         text-decoration: none;
-    }
-    &:before {
-        font-family:'FontAwesome';
-        content:"\f00d";
-        font-size: 12px;
-        color: $color-master;
     }
 }
 .select2-drop-multi .select2-results {
@@ -1248,6 +1270,7 @@ http://ivaynberg.github.io/select2/
 }
 .ui-select-bootstrap > .ui-select-choices{
     background-color: #fff;
+    // box-shadow: 0px 4px 5px rgba(0,​ 0,​ 0,​ 0.15);
 }
 .ui-select-choices-group-label{
     color: $color-master-dark;
@@ -1283,7 +1306,6 @@ http://ivaynberg.github.io/select2/
     top: 0;
     z-index: $zIndex-dropdownMask;
 }
-
 /* Bootstrap Tags input
 https://github.com/timschlechter/bootstrap-tagsinput
 */
