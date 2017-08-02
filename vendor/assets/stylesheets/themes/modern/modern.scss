@@ -1,13 +1,13 @@
 /*------------------------------------------------------------------
-Pages v3.0.0
-Theme : Default
-Generated From SASS
+Pages v1.1.0
+Theme : Corporate
+Generated From SCSS
 [Table of contents]
 
 1. Layouts
 2. View Ports
 3. Chat
-4. Cards
+4. Panels
 5. Typography
 6. Buttons
 7. Alerts
@@ -37,22 +37,22 @@ Generated From SASS
 -------------------------------------------------------------------*/
 
 // Color functions
-@import "color";
+@import "../../color";
 
 // Import Vars
 @import "var";
 
 // Mixins tools
-@import "mixins";
+@import "../../mixins";
 
 // Includes of Modules
-@import "modules";
+@import "../../modules";
 
 // Responsive Util
-@import "responsive";
+@import "../../responsive";
 
-
-
+// Custom
+@import "custom"
 
 
 

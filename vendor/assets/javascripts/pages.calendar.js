@@ -1,6 +1,15 @@
-//Pages Calendar - Version 2.2.0
-
-(function($) {
+//Pages Calendar - Version 3.0.0
+(function(factory) {
+    if (typeof define === 'function' && define.amd) {
+        define([ 'jquery', 'moment' ], factory);
+    }
+    else if (typeof exports === 'object') { // Node/CommonJS
+        module.exports = factory(require('jquery'), require('moment'));
+    }
+    else {
+        factory(jQuery, moment);
+    }
+})(function($, moment) {
     var PagesCalendar = function(element, options) {
         this.$element = $(element);
 
@@ -234,6 +243,7 @@
             */          
             var _bindEvents = function(){
                 var $this = this;
+                $(document).off("click", "body:not(.pending) .year-selector");
                 $(document).on("click", "body:not(.pending) .year-selector",function(e) {
                     var year = $(this).attr('data-year');
                     calendar.year = moment(year, Calendar.settings.ui.year.format).year();
@@ -320,6 +330,7 @@
             */
             _bindEvents:function(){
                 var $this = this;
+                $(document).off("click", "body:not(.pending) .month-selector")
                 $(document).on("click", "body:not(.pending) .month-selector",function(e) {
                     var month = $(this).attr('data-month');
                     calendar.month = moment(month, Calendar.settings.ui.month.format).month();
@@ -411,6 +422,7 @@
             */
             _bindEvents:function(){
                 var $this = this;
+                $(document).off("click", "body:not(.pending) .date-selector");
                 $(document).on("click", "body:not(.pending) .date-selector",function(e) {
                     $(".week-date").removeClass('active')
                     $(this).children('.week-date').addClass('active');
@@ -1198,6 +1210,7 @@
         */
         MonthView.prototype._bindEvents= function(){
             var $this = this;
+            $(".month-view .tcell").off("click");
             $(".month-view .tcell").on("click",function(){
                 var d  = moment($(this).attr("data-date"));
                 calendar.date = d.format("D");
@@ -1457,7 +1470,7 @@
             /**
              * @constructor
              */
-            Init: function() {
+            Init: function(rebuild) {
                 this.settings = plugin.settings;
                 if (Calendar.settings.ui.year == null || Calendar.settings.ui.month == null || Calendar.settings.ui.dateHeader == null || Calendar.settings.ui.week == null || Calendar.settings.ui.grid == null) {
                     alert("You have not included the proper ui[] settings, please refer docs");
@@ -1505,7 +1518,7 @@
                     end : val[1]
                 }
                 plugin.settings.onViewRenderComplete(range);
-                this.bindEventHanders();
+                (!rebuild) ? this.bindEventHanders() : null;
                 this.autoFocusActiveElement();
                 this.scrollToElement('#weeks-wrapper .active');
 
@@ -1519,7 +1532,7 @@
             },
 
             rebuild:function(){
-                Calendar.Init();
+                Calendar.Init(true);
             },
 
             /**
@@ -1775,10 +1788,12 @@
             },
 
             bindEventHanders: function() {
+
                 interact(".cell-inner:not(.disable)").on('doubletap', function (event) {
                     Calendar.timeSlotDblClick($(event.currentTarget));
                     event.preventDefault();
                 })
+                
                 interact('.event-container').on('tap', function (event) {
                     var eventO = Calendar.constructEventForUser($(event.currentTarget).attr('data-index'));
                     plugin.settings.onEventClick(eventO);
@@ -2019,12 +2034,16 @@
     // =======================
 
     function Plugin(option, obj) {
+        var $this = $(this)
+          , data = $this.data('pagescalendar')
+          , options = typeof option == 'object' && option
+        if (typeof option == 'string') {
+           return data[option](obj)
+        }
         return this.each(function () {
-            var $this = $(this)
-              , data = $this.data('pagescalendar')
-              , options = typeof option == 'object' && option
-            if (!data) $this.data('pagescalendar', (data = new PagesCalendar(this, options)))
-            if (typeof option == 'string') data[option](obj)
+            if (!data) {
+                $this.data('pagescalendar', (data = new PagesCalendar(this, options)))
+            }
         });
     }
 
@@ -2063,7 +2082,7 @@
                         format: 'dd'
                     },
                     eventBubble: true,
-                    startOfTheWeek: '1',
+                    startOfTheWeek: '0',
                     endOfTheWeek:'6',
                     visible:true
                 },
@@ -2088,7 +2107,7 @@
             minTime:0,
             maxTime:24,
             dateFormat: 'MMMM Do YYYY',
-            slotDuration: '15', //In Mins : supports 15, 30 and 60
+            slotDuration: '30', //In Mins : supports 15, 30 and 60
             events: [],
             eventOverlap: false,
             weekends:true,
@@ -2119,7 +2138,8 @@
         return this;
     }
 
-})(jQuery);
+});
+
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module unless amdModuleId is set

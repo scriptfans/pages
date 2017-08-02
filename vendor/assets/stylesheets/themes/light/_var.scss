@@ -1,37 +1,31 @@
-// Pages Unlax Theme
+// Pages Light Theme  
 // --------------------------------------------------
 // Copyright Reserved Revox - 2014
 // --------------------------------------------------
 
 $base-img-url: "../../img" !default;
 $assets-url: "../../../assets" !default;
-// Global Color
+
+// Global Color 
 // --------------------------------------------------
 // Base Grey Guided Color * change only $base-light
 // --------------------------------------------------
 
-//Base Grey Color
-$color-master: #495b62 !default;
-
 $color-white: #fff !default;
 $color-black: #000 !default;
 
-$color-success: #2eaeb3 !default;
-$color-complete : #0594dd !default;
-$color-primary: #5d598d !default;
-$color-warning: #fbc25e !default;
-$color-danger: #e95555 !default;
-$color-info: #1f3853 !default;
+//Base Grey Color
+$color-master: #7a8994 !default;
 
 // Lighter Grey colors
-$color-master-light:mix($color-master, #fff, 20%) !default;
-$color-master-lighter:mix($color-master, #fff, 15%) !default;
-$color-master-lightest:mix($color-master, #fff, 12%) !default;
+$color-master-light:mix($color-master, #fff, 16%) !default;
+$color-master-lighter:mix($color-master, #fff, 9.5%) !default;
+$color-master-lightest:#f6f9fa !default;
 
 // Darker Grey colors
 $color-master-dark:mix($color-master, #000, 45%) !default;
 $color-master-darker:mix($color-master, #000, 27%) !default;
-$color-master-darkest:mix($color-master, #000, 20%) !default;
+$color-master-darkest:mix($color-master, #000, 18%) !default;
 
 
 $base-font-family: wf_segoe-ui_light,wf_segoe-ui_normal,"Helvetica Neue", Helvetica, Arial, sans-serif !default;
@@ -41,20 +35,20 @@ $base-font-family: wf_segoe-ui_light,wf_segoe-ui_normal,"Helvetica Neue", Helvet
 //Menu Animation Curve
 $menu-bezier:.05, .74, .27, .99 !default;
 $menu-icon-size:40px !default;
-$color-menu :#22262e !default;
-$color-menu-dark :mix($color-menu, #000, 77%) !default;
-$color-menu-darker :mix($color-menu, #000, 90%) !default;
+$color-menu :#fff !default;
+$color-menu-dark :#fff !default;
+$color-menu-darker :#fff !default;
 
 //Generating Menu font color
-$menu-mix-temp : mix($color-menu, #fff, 92%) !default;
-$menu :blend-hardlight($menu-mix-temp,#fff) !default;
-$color-menu-light :$menu !default;
+// $menu-mix-temp : mix($color-menu, #fff, 92%) !default;
+// $menu :hardlight(#fff, $menu-mix-temp) !default;
+$color-menu-light :#627182 !default;
 //Menu Font Color
-$color-menu-link-hover:#fff !default;
+$color-menu-link-hover:#000 !default;
 
 // Body
 // --------------------------------------------------
-$body-background: $color-master-lightest !default;
+$body-background: #fff !default;
 $body-color: $color-master !default;
 $body-font-family : $base-font-family !default;
 $body-font-size : 13px !default;
@@ -75,15 +69,16 @@ $layout-gutter-sm : 5px !default;
 
 //Horizontal Dropdown
 //---------------------------------------------------
-$navbar-width:45px;
-$menu-padding:25px;
+$navbar-width:45px !default;
+$menu-padding:25px !default;
 
-$header-lg-height:60px;
-$header-md-height:50px;
-$header-sm-height:45px;
+$header-lg-height:75px !default;
+$header-md-height:51px !default;
+$header-sm-height:50px !default;
+
 
 // Panels
-$panel-border-color: transparent !default;
+$panel-border-color: rgba(0, 0, 0, 0.07) !default;
 $panel-padding: 20px !default;
 $panel-heading-padding: $panel-padding $panel-padding 7px $panel-padding !default;
 $panel-heading-min-height: 48px !default;
@@ -92,11 +87,21 @@ $panel-condensed-body-padding: 13px !default;
 $panel-condensed-heading-min-height: 48px !default;
 
 //Forms
-$form-group-height: 54px !default;
+$form-group-height: 54px !default !default;
 $form-control-border-color: rgba($color-black, .07) !default;
 
 //Dashboard
 $dashboard-background : $color-master-lightest !default;
+
+$color-white: #fff !default;
+$color-black: #000 !default;
+
+$color-success: #007be8 !default;
+$color-complete : #00e8ba !default;
+$color-primary: #007be8 !default;
+$color-warning: #fed76e !default;
+$color-danger: #ea2c54 !default;
+$color-info: #47525e !default;
 
 //Mixing Color varriable for creating both light and dark colors
 $mix-percentage-dark: 81% !default;
