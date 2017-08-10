@@ -9,6 +9,19 @@
 /* To Load Hinted Fonts for Windows */
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600');
 
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v5/zhcz-_WihjSQC0oHJ9TCYAzyDMXhdD8sAj6OAJTFsBI.woff2) format('woff2'), url(https://fonts.gstatic.com/s/montserrat/v5/zhcz-_WihjSQC0oHJ9TCYL3hpw3pgy2gAi-Ip7WPMi0.woff) format('woff'), url('../fonts/montserrat/Montserrat-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Montserrat-Bold'), url(https://fonts.gstatic.com/s/montserrat/v5/IQHow_FEYlDC4Gzy_m8fcmaVI6zN22yiurzcBKxPjFE.woff2) format('woff2'), url(https://fonts.gstatic.com/s/montserrat/v5/IQHow_FEYlDC4Gzy_m8fcnbFhgvWbfSbdVg11QabG8w.woff) format('woff'), url('../fonts/montserrat/Montserrat-Bold.ttf') format('truetype');
+}
+
 html{
     font-size: 100%;
     -ms-text-size-adjust: 100%;
@@ -26,14 +39,14 @@ body{
     -webkit-font-feature-settings: "kern" 1;
     -moz-font-feature-settings: "kern" 1;
 }
-/* Headings 
+/* Headings
 ------------------------------------
 */
-h1, 
-h2, 
-h3, 
-h4, 
-h5, 
+h1,
+h2,
+h3,
+h4,
+h5,
 h6 {
     margin: 10px 0;
     font-family: "Segoe UI","Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -64,16 +77,16 @@ h5{
     font-size: 18px;
     line-height: 25.88px;
 }
-h3 small, 
-h4 small, 
+h3 small,
+h4 small,
 h5 small {
     font-weight: 300;
 }
-h1.block, 
-h2.block, 
-h3.block, 
-h4.block, 
-h5.block, 
+h1.block,
+h2.block,
+h3.block,
+h4.block,
+h5.block,
 h6.block {
     padding-bottom: 10px;
 }
@@ -116,7 +129,7 @@ p {
     font-style: normal;
     white-space: normal;
 }
-small, 
+small,
 .small{
     line-height: 18px;
     font-size: 85%;
@@ -203,7 +216,7 @@ hr{
   }
 }
 
-/* Font Sizes 
+/* Font Sizes
 ------------------------------------
 */
 
@@ -235,7 +248,7 @@ hr{
 }
 
 
-/* Misc 
+/* Misc
 ------------------------------------
 */
 
@@ -303,7 +316,7 @@ hr{
     background-color: $color-primary-lighter;
 }
 
-/* Complete 
+/* Complete
 ------------------------------------
 */
 .bg-complete {
@@ -322,7 +335,7 @@ hr{
     background-color: $color-complete-lighter;
 }
 
-/* Success 
+/* Success
 ------------------------------------
 */
 .bg-success {
@@ -360,7 +373,7 @@ hr{
     background-color: $color-info-lighter;
 }
 
-/* Danger 
+/* Danger
 ------------------------------------
 */
 .bg-danger {
@@ -402,7 +415,7 @@ hr{
 ------------------------------------
 */
 
-/* Menu 
+/* Menu
 ------------------------------------
 */
 .bg-menu-dark{
@@ -652,7 +665,7 @@ hr{
 ------------------------------------
 */
 
-@media (max-width: 1400px) { 
+@media (max-width: 1400px) {
 
     body, p{
         font-size: 13px;
@@ -689,11 +702,11 @@ hr{
 }
 
 
-/* For Windows : Fixes 
+/* For Windows : Fixes
 ------------------------------------
 */
 .windows {
-    body, 
+    body,
     p{
         font-size: 13px;
         letter-spacing: normal;
@@ -711,10 +724,10 @@ hr{
         line-height: 28px;
         font-weight: normal;
     }
-    h1, 
-    h2, 
-    h3, 
-    h4, 
+    h1,
+    h2,
+    h3,
+    h4,
     h5{
         font-weight: 300;
         letter-spacing: normal;
@@ -727,7 +740,7 @@ hr{
             font-size: 85%;
         }
     }
-    small, 
+    small,
     .small{
         // font-size: 85%;
         font-size: 89%;
