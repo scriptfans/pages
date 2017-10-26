@@ -64,7 +64,7 @@ $base-img-url: "/assets";
 Include theme (dont include with pages.rtl or pages, only include the following)
 ```
 $base-img-url: "/assets";
-@import "themes/calendar";
+@import "themes/calendar/calendar";
  ```
 
 ##Dependencies
