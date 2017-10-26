@@ -451,9 +451,6 @@
         .brand{
             width: auto;
         }
-        .notification-list, .search-link{
-            display: none;
-        } 
 
         & > .pull-left,  & > .pull-right{
             position: relative;
@@ -896,9 +893,6 @@
     
     .header{
         height: $layout-mobile-header-height;
-        .notification-list, .search-link{
-            display: none;
-        } 
         .header-inner{
             height: $layout-mobile-header-height;
         }
@@ -1059,18 +1053,9 @@
                 }
 
             }
-            .notification-list, .search-link{
-                display:none;
-            }
-            
-
             .dropdown-submenu{
                 top:12px;
             }
-            .notification-list, .search-link{
-                display:none;
-            }
-
         }
 
         #overlay-search{

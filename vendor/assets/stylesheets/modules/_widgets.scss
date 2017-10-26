@@ -43,7 +43,7 @@
     position: absolute;
     z-index: 1;
   }
-  & > .card-block {
+  & > .card-body {
     // padding: 54px 37px 37px 37px;
     .company:nth-child(2) > div {
       display: table;
@@ -51,13 +51,13 @@
       width: 127px;
     }
   }
-  & > .card-block > * {
+  & > .card-body > * {
     z-index: 1;
   }
-  & > .card-block > *:not(.pull-bottom) {
+  & > .card-body > *:not(.pull-bottom) {
     position: relative;
   }
-  & > .card-block .pull-bottom {
+  & > .card-body .pull-bottom {
     padding: 0 49px 56px 42px;
   }
   span.label {
