@@ -146,6 +146,7 @@ $color-info-darker: mix($color-info, $color-black, $mix-percentage-darker) !defa
 // Email colors
 $sidebar-background-color : $color-menu-dark !default;
 
+@color-info-dark: mix(@color-info, @color-black, @mix-percentage-dark);
 $secondary-sidebar-width : 250px;
 
 
@@ -164,3 +165,8 @@ $padding-sm-horizontal:  16px !default;
 
 $padding-xs-vertical:       2px !default;
 $padding-xs-horizontal:     9px !default;
+
+
+@zIndex-navbar : @zIndex-9;
+@zIndex-sidebar : @zIndex-10;
+@zIndex-tooltips : @zIndex-10;

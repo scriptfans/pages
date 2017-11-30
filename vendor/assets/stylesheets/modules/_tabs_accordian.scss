@@ -568,7 +568,7 @@
       border-left:1px solid $panel-border-color;
     }
   }
-  .card-heading {
+  .card-header {
     padding: 13px 18px 10px 22px;
     &.collapsed {
       background-color: #fff;
@@ -631,7 +631,6 @@
       padding-left: 0;
     }
     // Links rendered as pills
-    padding-left: 0;
     > a {
       color: $color-master;
     }

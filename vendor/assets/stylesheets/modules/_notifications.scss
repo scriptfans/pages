@@ -158,6 +158,7 @@
                     margin-bottom: 20px;
                     position: relative;
                     border-left: 1px solid fade($color-master-light, 70%);
+                    text-align:left;
                     &:after{
                         width: 14px;
                         height: 14px;
@@ -407,6 +408,9 @@ body.menu-pin > .pgn-wrapper[data-position="bottom"]{
 }
 .pgn-wrapper[data-position$='-left'] .pgn-circle .alert {
     float: left;
+}
+.pgn-wrapper[data-position^='bottom-'] .pgn-circle .alert {
+    margin-bottom: 20px;
 }
 .pgn-circle .alert > div > div.pgn-thumbnail > div {
     border-radius: 50%;
@@ -672,4 +676,8 @@ body > .pgn-wrapper{
                 width: 100%;
             }
     }  
+}
+
+.notification-tabs{
+  flex-wrap: wrap;
 }

@@ -22,7 +22,7 @@
                 border-bottom: 1px solid fade-out($color-master-light, .3);
                 color:fade-out($color-master-dark, .65);
                 border-top: none;
-                &[class*='sorting_'] {
+                &[class*='sorting_']:not([class='sorting_disabled']){
                     color:$color-master-dark;
                 }
                 &:first-child {
@@ -117,11 +117,14 @@
                 }
             }
         }
-        thead tr th, tbody tr td, tbody tr td * {
+        thead tr th, tbody tr td, tbody tr td *:not(.dropdown-default){
             white-space: nowrap;
             vertical-align: middle;
             overflow: hidden;
             text-overflow: ellipsis;
+            &.reset-overflow *{
+                overflow: initial !important;
+            }
         }
         &.table-detailed {
             & > tbody > tr {

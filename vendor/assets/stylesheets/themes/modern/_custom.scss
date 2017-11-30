@@ -1,6 +1,4 @@
-// Theme overrides
-
-// Webarch Default Theme
+// Pages Modern Theme
 // --------------------------------------------------
 // Copyright Reserved Revox - 2014
 // --------------------------------------------------
@@ -8,8 +6,7 @@
 // Import Vars
 @import "var";
 
-//Theme Overwrite
-
+// START Theme Overwrite
 .horizontal-app-menu .header{
   background: #fff;
 }
@@ -32,6 +29,12 @@
   transition: none;
   transform: none;
 }
+.horizontal-app-menu .menu-bar > ul > li:first-child > a{
+  padding-left: 4px;
+}
+.horizontal-app-menu .menu-bar ul li a .arrow{
+  padding-left: 7px;
+}
 .header {
   .bubble{
     background-color: $color-danger;
@@ -53,9 +56,52 @@
       }
     }
   }
-
+}
+@media (min-width: 992px){
+  .horizontal-app-menu {
+    .menu-bar{
+      & > ul {
+        & > li{
+          margin: 0 12px;
+          &:first-child{
+            margin-left: 0;
+          }
+          & > a{
+            padding: 0 4px;
+          }
+          & > ul{
+            left: -21px;
+          }
+        }
+      }
+    }
+    .ghost-nav-dropdown {
+      left: -21px;
+    }
+  }
 }
 
 .jumbotron{
   padding-top: 20px;
 }
+
+@media (max-width:979px){
+.horizontal-app-menu {
+  .header {
+    padding-left: 0;
+    .header-inner{
+      padding-left: 15px;
+      padding-right: 15px;
+      .brand.inline{
+        padding: 0;
+          margin: 0;
+          margin-left: 35px;
+      }
+    }
+  }
+  .menu-bar ul li a{
+    padding-right: 20px !important;
+  }
+ }
+}
+// END Theme Overwrite

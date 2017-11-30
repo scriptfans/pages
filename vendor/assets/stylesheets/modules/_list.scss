@@ -50,7 +50,7 @@
 	font: normal 11px/14px 'Montserrat',Arial;
     text-transform: uppercase;
 	margin: 0;
-	padding: 6px 0 5px 15px;
+	padding:6px, 0, 5px, 15px;
 	position: absolute;
     z-index: 10;
 }
@@ -100,7 +100,6 @@ input.list-view-search{
         white-space: nowrap;
         cursor: pointer;
         width: 100%;
-        display: table;
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -176,35 +175,5 @@ input.list-view-search{
         display: inline-block;
         padding-right: 5px;
         padding-left: 5px;
-    }
-}
-
-
-.breadcrumb{
-    a, i, span, li{
-        color: #7b7d82;
-        font-weight: 300;
-        text-shadow: none; 
-    }
-}
-.breadcrumb {
-    li {
-        padding-left: 0px;
-        display: inline-block;
-        a{
-            &.active {
-                font-weight: 600;
-                color: #0090d9;
-            }
-        }
-        +li{
-            &::before{
-                padding: 0 5px;
-                color: #515050;
-                font-family: FontAwesome;
-                content: "\f105";
-                font-weight: bold;
-            }
-        }
     }
 }

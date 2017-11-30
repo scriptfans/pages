@@ -260,6 +260,7 @@
     right: 0;
     z-index: $zIndex-portlet;
     margin: 0;
+    width: auto;
 }
 
 /* Pages notification holder */
@@ -271,6 +272,8 @@
 .card-header a:not(.btn){
     color: $color-master !important;
     opacity: .4;
+    padding-top: 10px;
+    padding-bottom: 10px;
     &.card-refresh{
         @include transition(opacity .3s ease);
         &.refreshing{

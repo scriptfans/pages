@@ -21,6 +21,13 @@
     }
   }
 }
+
+.push-on-sidebar-open{
+    -webkit-transition: -webkit-transform 0.25s ease;
+    transition: transform 0.25s ease;
+    -webkit-backface-visibility: hidden;
+}
+
 /* Thumbnail for icons and profile pics
 ------------------------------------
 */
@@ -175,6 +182,10 @@
   overflow: auto;
 }
 
+.reset-overflow{
+  overflow: initial !important;
+}
+
 .center-margin{
   margin-left: auto;
   margin-right: auto;
@@ -242,14 +253,19 @@
 }
 
 .pull-center {
-    position: absolute;
     left: 0;
-    right: 0;
-    width: 100%;
-    display: table;
-    z-index: 1;
 }
-
+.pull-right{
+  float:right !important;
+}
+.pull-center{
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: table;
+  z-index: 1;
+}
 .cursor{
   cursor: pointer;
 }
@@ -443,6 +459,8 @@
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
+-ms-flex-negative:0;
+    flex-shrink:0;
 }
 
 [data-pages-bg-image]{
@@ -468,8 +486,6 @@
 }
 .error-container{
     margin-top: -100px;
-    margin-left: auto;
-    margin-right: auto;
     width: 38%;
 }
 
@@ -679,4 +695,11 @@
         display:table-cell !important;
         float:none !important;
     }
+}
+
+//IE Fixes
+.windows{
+  .d-flex {
+    -ms-flex-wrap: wrap;
+  }
 }

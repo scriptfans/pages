@@ -232,6 +232,9 @@
   .widget-12-search{
     margin-top: -3px;
   }
+  @media (max-width: 992px){
+    flex: none;
+  }
 }
 .widget-14 {
     .row-xs-height:nth-child(1){
@@ -361,103 +364,6 @@
   .widget-1-wrapper {
     height: 340px;
   }
-}
-
-
-/* WIDGET MANAGER */
-#widget-filter{
-  font-size: 18px;
-  &:focus{
-    background: none;
-    border: none;
-  }
-}
-#widgetDetails {
-  .progress-circle-indeterminate{
-    position: absolute;
-    left: 50%;
-    margin-left: -19px;
-    top: 50%;
-    margin-top: -19px;
-  }
-}
-.widgets-container {
-    margin: 0 auto;
-}
-#widget-preview{
-  display: block;
-  margin: 0 auto;
-}
-.widget-item {
-    overflow: hidden;
-    cursor: default;
-    background-color: #fff;
-    margin-bottom: 10px;
-    position: relative;
-    width: 280px;
-    height: 240px;
-    &:hover {
-        cursor: pointer;
-        &:before{
-          opacity: 0;
-        }
-        &:after{
-          opacity: .8;
-        }
-        .item-footer{
-          color: $color-primary !important;
-        }
-    }
-    &:before{
-      position: absolute;
-      content: "";
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      background-image: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.8) 70%);
-      transition: opacity .3s ease;
-      -webkit-transition: opacity .3s ease;
-      opacity: 1;
-    }
-    &:after{
-      position: absolute;
-      content: "";
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      background: #fff;
-      opacity: 0;
-      transition: opacity .3s ease;
-      -webkit-transition: opacity .3s ease;
-    }
-    &[data-width="1"] {
-        width: 280px;
-    }
-    &[data-width="2"] {
-        width: 570px;
-    }
-    &[data-height="1"] {
-        height: 240px;
-    }
-    &[data-height="2"] {
-        height: 490px;
-    }
-    .item-footer{
-      color: $color-master;
-      p.pull-left{
-        text-overflow: ellipsis;
-        width: 84%;
-        white-space: nowrap;
-        overflow: hidden;
-      }
-      .pull-right{
-        .fa-stack{
-          font-size:69%;
-        }
-      }
-    }
 }
 
 @media (max-width: 420px) {

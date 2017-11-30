@@ -11,26 +11,26 @@ $assets-url: "../../../assets" !default;
 // --------------------------------------------------
 
 //Base Grey Color
-$color-master: #51646b !default;
+$color-master: #575a5d !default;
 
 $color-white: #fff !default;
 $color-black: #000 !default;
 
-$color-success: #47b5ab !default;
-$color-complete : #69b6f3 !default;
+$color-success: #1dbb99 !default;
+$color-complete : #0084ff !default;
 $color-primary: #07c25f !default;
-$color-warning: #f9dc6b !default;
-$color-danger: #eb7374 !default;
-$color-info: #4d6286 !default;
+$color-warning: #f7cf5f !default;
+$color-danger: #f94816 !default;
+$color-info: #1f3953 !default;
 
 // Lighter Grey colors
-$color-master-light:mix($color-master, #fff, 21%) !default;
-$color-master-lighter:mix($color-master, #fff, 15%) !default;
-$color-master-lightest:mix($color-master, #fff, 10%) !default;
+$color-master-light:mix($color-master, #fff, 18%) !default;
+$color-master-lighter:#e8e9ea !default;
+$color-master-lightest:#f5f6f7 !default;
 
 // Darker Grey colors
-$color-master-dark:mix($color-master, #000, 45%) !default;
-$color-master-darker:mix($color-master, #000, 27%) !default;
+$color-master-dark:mix($color-master, #000, 50%) !default;
+$color-master-darker:mix($color-master, #000, 28%) !default;
 $color-master-darkest:mix($color-master, #000, 20%) !default;
 
 
@@ -41,7 +41,7 @@ $base-font-family: wf_segoe-ui_light,wf_segoe-ui_normal,"Helvetica Neue", Helvet
 //Menu Animation Curve
 $menu-bezier:.05, .74, .27, .99 !default;
 $menu-icon-size:40px !default;
-$color-menu :#2a2e35 !default;
+$color-menu :#323237 !default;
 $color-menu-dark :mix($color-menu, #000, 77%) !default;
 $color-menu-darker :mix($color-menu, #000, 90%) !default;
 

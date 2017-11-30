@@ -124,6 +124,15 @@ form legend {
         background: mix($color-master-lighter, #fff, 50%);
         color: rgba($color-master, .23);
     }
+    //Textfields and inpt
+    &.transparent{
+        background-color:transparent;
+        border-color: transparent;
+        &:focus{
+            background-color:transparent;
+            border-color: transparent;
+        }
+    }
 }
 
 
@@ -198,10 +207,13 @@ form legend {
         cursor: pointer;
         position: relative;
         padding-left: 25px;
+        margin-right: 15px;
         min-width: 17px;
         min-height: 17px;
         margin-right: 15px;
         font-size: 13px;
+        line-height: 20px;
+        margin-bottom: 0;
         &:before{
             -webkit-box-sizing: inherit;
             box-sizing: border-box;
@@ -290,7 +302,6 @@ input[type=radio]:checked + label:before{
     }
     label {
         transition: border 0.2s linear 0s, color 0.2s linear 0s;
-        white-space: nowrap;
         &:before {
             top: 1.4px;
             border-radius: 3px;
@@ -409,6 +420,24 @@ input[type=checkbox]:checked + label{
         color: $color-white;
     }
     
+}
+.input-group-addon:first-child{
+    border-right:0;
+    border-left:1px solid $form-control-border-color;
+    border-top-left-radius:2px;
+    border-bottom-left-radius:2px;
+    border-top-right-radius:0;
+    border-bottom-right-radius:0;
+}
+.input-group-addon:last-child{
+    border-right:1px solid $form-control-border-color;
+    border-left:0;
+    border-top-right-radius:2px;
+    border-bottom-right-radius:2px;
+}
+.input-group .form-control:first-child{
+    border-top-right-radius:0;
+    border-bottom-right-radius:0;
 }
 
 .input-group{
@@ -656,7 +685,6 @@ input[type=checkbox]:checked + label{
         }
         .input-group-addon{
             height: calc(#{$form-group-height} - 4px);
-            min-width:calc(#{$form-group-height} - 4px);
             border-radius: 0;
             border:none;
         }
@@ -723,6 +751,11 @@ input[type=checkbox]:checked + label{
                 height: 23px;
             }
         }
+        .ui-select-container{
+            .select2-choices{
+                border:0px;
+            }
+        }
     }
     &.form-group-default-select2{
         padding: 0;
@@ -743,6 +776,7 @@ input[type=checkbox]:checked + label{
             .select2-selection--single{
                 padding-top: 20px;
                 height: 52px;
+                border: 0 !important;
                 .select2-arrow b:before{
                     top: 20px;
                 }
@@ -851,7 +885,6 @@ input[type=checkbox]:checked + label{
     color: rgba($color-master, .47);
     font-size: 14px;
     padding: 6px 9px;
-    display: table-cell;
     border-radius: 3px;
     transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s, color 0.2s linear 0s, box-shadow 0.2s linear 0s, background 0.2s linear 0s;
     i {
@@ -1103,7 +1136,7 @@ http://www.dangrossman.info/
         border-color: $color-primary;
     }
     td.in-range{
-        background:$color-primary-lighter;
+       // background:$color-primary-lighter;
     }
 }       
 /* Select2
@@ -1194,8 +1227,6 @@ select.full-width + .select2-container {
         border-top-left-radius: 2px;
         border-top-right-radius: 2px;
         box-shadow: none;
-        // &.select2-drop-active {
-        // }
     }
 }
 .select2-container--open .select2-selection {
@@ -1331,7 +1362,6 @@ select.full-width + .select2-container {
 }
 .ui-select-bootstrap > .ui-select-choices{
     background-color: #fff;
-    // box-shadow: 0px 4px 5px rgba(0,​ 0,​ 0,​ 0.15);
 }
 .ui-select-choices-group-label{
     color: $color-master-dark;
@@ -1366,6 +1396,93 @@ select.full-width + .select2-container {
     right: 0;
     top: 0;
     z-index: $zIndex-dropdownMask;
+}
+
+.ui-select-placeholder.ng-hide {
+    // display: block !important;
+}
+
+.ui-select-bootstrap {
+    *:focus {
+        outline: none;
+    }
+    .ui-select-choices-row > span {
+        padding-top: 6px;
+        padding-bottom: 6px;
+        line-height: 24px;
+        font-size: 14px;
+    }
+    .ui-select-match {
+        box-shadow: none;
+    }
+    .ui-select-choices-group-label {
+        padding-left: 15px;
+        line-height: 24px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #626262;
+    }
+    .ui-select-match-item {
+
+    }
+    .ui-select-match.btn-default-focus {
+        background-color: transparent;
+    }
+}
+.form-group-default-select {
+    padding-bottom: 2px;
+    .ui-select-bootstrap {
+        .ui-select-dropdown {
+            width: calc(100% + 24px) !important;
+            margin-left: -12px;
+            padding: 10px;
+        }
+        .ui-select-match-text {
+            width: calc(100% + 24px);
+            margin-top: -17px;
+            margin-left: -16px;
+            padding: 16px 16px 0;
+        }
+        .ui-select-match {
+            padding-top: 2px !important;
+            i.caret {
+                margin-top: 10px;
+            }
+            &.btn-default-focus {
+                outline: none;
+            }
+            & > .ui-select-toggle {
+                width: calc(100% + 27px);
+                height: 50px;
+                margin-top: -34px;
+                margin-left: -16px;
+                padding: 32px 16px 16px;
+            }
+        }
+        .dropdown-menu .divider {
+            display: none;
+        }
+        &.ui-select-container {
+            margin-top: -3px;
+            padding-bottom: 2px;
+        }
+    }
+    .ui-select-multiple {
+        margin-top: -7px;
+        .select2-search-field input {
+            height: 23px !important;
+        }
+        .select2-search-choice {
+            margin-top: 2px;
+            margin-bottom: 0;
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+    .select2-container-multi .select2-choices {
+        background-color: transparent;
+    }
 }
 /* Bootstrap Tags input
 https://github.com/timschlechter/bootstrap-tagsinput
@@ -1442,13 +1559,13 @@ https://github.com/timschlechter/bootstrap-tagsinput
         -webkit-box-flex: 1;
         -ms-flex: 1 0 auto;
         flex: 1 0 auto;
-        margin: 5px;
-        margin-top: 0;
-        margin-right:0;
         //Older browsers
         -webkit-flex-shrink:0;
         -webkit-flex-grow: 1;
         -webkit-flex-basis: auto;
+        margin: 5px;
+        margin-top: 0;
+        margin-right:0;
     }
     .tag [data-role="remove"]{
         margin-left: 4px;
@@ -2040,18 +2157,6 @@ div.cs-skin-slide{
 .cs-skin-slide.cs-active .cs-options li:nth-child(11) {
     transition-delay: 0.55s;
 }
-
-.dropzone {
-    overflow: hidden;
-    .dz-default.dz-message{
-        width: 100%;
-    }
-}
-  
-/* Dropzone for Angular */
-.dropzone[dropzone="dropzone"] input[type="file"]{
-    visibility: hidden;
-}
 /* end overrides */
 
 // Twitter Typehead
@@ -2096,6 +2201,20 @@ div.cs-skin-slide{
         margin: 4px -12px;
     }
 }
+
+.dropzone {
+    overflow: hidden;
+    .dz-default.dz-message{
+        width: 100%;
+    }
+}
+
+/* Dropzone for Angular */
+.dropzone[dropzone="dropzone"] input[type="file"]{
+    visibility: hidden;
+}
+/* end overrides */
+
 /* Demo specifc classes */
 .demo-form-wysiwyg{
     height: 250px;
@@ -2149,6 +2268,7 @@ div.cs-skin-slide{
             margin-top: -2px;
             margin-bottom: 3px;
             padding-left: 12px;
+            width: 100%;
         }
         .input-group-addon {
             min-width: calc(50px);

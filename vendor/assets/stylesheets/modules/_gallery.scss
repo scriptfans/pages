@@ -176,7 +176,9 @@
         }
     }
 }
-
+.owl-carousel .owl-stage-outer{
+    direction: ltr;
+}
 .gallery-filters{
     position: absolute;
     left: 0;
